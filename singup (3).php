@@ -26,6 +26,8 @@ $con = mysqli_connect('localhost', 'njoabbmn_items_wellpick', 'Well_pick1234!@',
 
    }
 
+  }else{
+    echo "Something Wrong";
   }
    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -37,6 +39,13 @@ $con = mysqli_connect('localhost', 'njoabbmn_items_wellpick', 'Well_pick1234!@',
   return $decryptData;
 
    }
+
+   function encryptData($text) {
+    $encryptedData = openssl_encrypt($text, 'AES-128-ECB', 'abulkhair123456@', OPENSSL_RAW_DATA);
+    $encoded = base64_encode($encryptedData);
+    return $encoded;
+}
+
    
  
 
